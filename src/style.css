@@ -1,0 +1,26 @@
+img {
+  width: 300px;
+}
+
+ul {
+  list-style: none;
+  position: relative;
+  top: 50px;
+}
+.col {
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+.weather_app {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+/*.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}*/
+
+.temperature {
+  font-size: 45px;
+}
