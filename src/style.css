@@ -7,20 +7,51 @@ ul {
   position: relative;
   top: 50px;
 }
+
+.container {
+  height: 400px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .col {
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
+  color: white;
+}
+
+.city {
+  font-size: 30px;
+  font-weight: 800;
 }
 .weather_app {
-  border: 1px solid black;
+  border: 1px solid #b0dee1;
   border-radius: 10px;
+  padding: 15px;
+  background-color: #b0dee1;
 }
 /*.container {
   display: flex;
   align-items: center;
   justify-content: center;
 }*/
-
+.date {
+  font-size: 20px;
+}
 .temperature {
   font-size: 45px;
+}
+
+.Wind {
+  font-size: 14px;
+}
+.Humid {
+  font-size: 14px;
+}
+.forcast-list {
+  padding-top: 18px;
+}
+.right_list {
+  padding: 0 30px;
 }
