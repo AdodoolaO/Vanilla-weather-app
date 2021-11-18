@@ -55,3 +55,7 @@ ul {
 .right_list {
   padding: 0 30px;
 }
+
+div.description {
+  text-transform: capitalize;
+}
