@@ -24,23 +24,44 @@
   <body>
     <div class="container">
       <div class="weather_app">
+          <form id="form">
+        <div class="row">
+          <div class="col-9">
+            <input
+              type="search"
+              class="form-control"
+              id="cityInput"
+              placeholder="Enter city..."
+            />
+          </div>
+          <div class="col-3">
+            <button type="submit" class="btn btn-primary" id="submitCity">
+              Submit
+            </button></form>
+          </div>
+        </div>
         <div class="row">
           <div class="col">
             <img src="Sun.svg" alt="" />
             <div class="row description">
-              <div class="col">Speed:</div>
-              <div class="col">Humidity:</div>
+              <div class="col-4">
+                Wind: <span id="speed">10</span><span>km/h</span>
+              </div>
+              <div class="col-4">
+                Humidity: <span id="humid">10</span><span>%</span>
+              </div>
+              <div class="col-4 description" id="description">Clear Skys</div>
             </div>
           </div>
 
           <div class="col">
             <ul class="right_list">
-              <li class="city">London</li>
+              <li class="city" id="cityName">London</li>
               <li class="date" id="date">
                 Sunday <span class="time"> 10:00</span>
               </li>
 
-              <li class="temperature">20°C</li>
+              <li class="temperature" id="temperature">20</li><span>°C/F</span>
             </ul>
           </div>
         </div>
