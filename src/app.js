@@ -66,6 +66,14 @@ function showWeather(response) {
   let descrip = document.querySelector("#description");
   let showDescrip = response.data.weather[0].description;
   descrip.innerHTML = showDescrip;
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  icon.setAttribute("alt", response.data.weather[0].description);
+
   celsius.classList.add("active");
   farenHeit.classList.remove("active");
 }
