@@ -8,6 +8,9 @@ ul {
   top: 50px;
 }
 
+.units {
+  font-size: 20px;
+}
 .container {
   height: 400px;
 
@@ -16,7 +19,7 @@ ul {
   justify-content: center;
 }
 
-.col {
+.col-4 {
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
   color: white;
 }
@@ -39,6 +42,7 @@ ul {
 .date {
   font-size: 20px;
 }
+
 .temperature {
   font-size: 45px;
 }
@@ -51,11 +55,20 @@ ul {
 }
 .forcast-list {
   padding-top: 18px;
+  color: white;
 }
 .right_list {
   padding: 0 30px;
+  color: white;
 }
 
 div.description {
   text-transform: capitalize;
+}
+.right_list .active {
+  color: white;
+  cursor: default;
+}
+.right_list .active :hover {
+  text-decoration: none;
 }
