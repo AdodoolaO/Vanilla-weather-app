@@ -72,3 +72,9 @@ div.description {
 .right_list .active :hover {
   text-decoration: none;
 }
+
+li.date {
+}
+.time {
+  font-size: 25px;
+}
