@@ -1,5 +1,5 @@
 img {
-  width: 300px;
+  width: 200px;
 }
 
 ul {
@@ -74,7 +74,8 @@ div.description {
 }
 
 li.date {
+  font-size: 30px;
 }
-.time {
+span.time {
   font-size: 25px;
 }
