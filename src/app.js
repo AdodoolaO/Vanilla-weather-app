@@ -1,3 +1,49 @@
+let current = new Date();
+
+console.log(current.getHours());
+console.log(current.getMinutes());
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+//create a liveDay function
+function liveDay() {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let currentDate = document.querySelector("#date");
+  let currentDay = days[current.getDay()];
+  currentDate.innerHTML = currentDay;
+
+  let hours = current.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
+  let minutes = current.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let currentTime = document.querySelector("#time");
+  currentTime.innerHTML = `${hours}:${minutes}`;
+}
+
+liveDay();
+
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#cityInput").value;
