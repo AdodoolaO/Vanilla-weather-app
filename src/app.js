@@ -44,22 +44,35 @@ function liveDay() {
 
 liveDay();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForcast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forcastElement = document.querySelector("#forcast");
-  let days = ["Weds", "Thurs", "Fri", "Sat", "Sun"];
+  //let days = ["Weds", "Thurs", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `  
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `  
           <div class="col">
-          <div>${day}</div>
-            <div>  <img class= "forcast-image" src="http://openweathermap.org/img/wn/10d@2x.png" alt="" id="icon" width="50px"/></div>
-            <div class="forcast-temp">20°</div>
+          <div>${formatDay(forecastDay.dt)}</div>
+            <div>  <img class= "forcast-image" src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" alt="" id="icon" width="50px"/></div>
+            <div class="forcast-temp">${
+              Math.round(forecastDay.temp.day) + `°`
+            }</div>
          
         </div>
        `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forcastElement.innerHTML = forecastHTML;
@@ -107,8 +120,8 @@ function showWeather(response) {
 
   celsius.classList.add("active");
   farenHeit.classList.remove("active");
-
   getForecast(response.data.coord);
+  displayForcast();
 }
 
 function convertBackToCelsius(event) {
@@ -142,3 +155,5 @@ celsius.addEventListener("click", convertBackToCelsius);
 
 let city = document.querySelector("#form");
 city.addEventListener("submit", searchCity);
+
+searchCity(London);
