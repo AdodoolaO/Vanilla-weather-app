@@ -44,7 +44,8 @@ function liveDay() {
 
 liveDay();
 
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response.data.daily);
   let forcastElement = document.querySelector("#forcast");
   let days = ["Weds", "Thurs", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row">`;
@@ -73,6 +74,14 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
 }
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "04ceffe59fa10e5e23c4c7bf0b0e4eca";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForcast);
+  //axios get api url and then display the forcast
+}
 
 function showWeather(response) {
   document.querySelector("#cityName").innerHTML = response.data.name;
@@ -98,6 +107,8 @@ function showWeather(response) {
 
   celsius.classList.add("active");
   farenHeit.classList.remove("active");
+
+  getForecast(response.data.coord);
 }
 
 function convertBackToCelsius(event) {
@@ -131,4 +142,3 @@ celsius.addEventListener("click", convertBackToCelsius);
 
 let city = document.querySelector("#form");
 city.addEventListener("submit", searchCity);
-displayForcast();
