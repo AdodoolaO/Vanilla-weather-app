@@ -123,39 +123,8 @@ function showWeather(response) {
 
   icon.setAttribute("alt", response.data.weather[0].description);
 
-  celsius.classList.add("active");
-  farenHeit.classList.remove("active");
   getForecast(response.data.coord);
 }
-
-function convertBackToCelsius(event) {
-  event.preventDefault();
-  let city = document.querySelector("#cityInput").value;
-  let apiKey = "04ceffe59fa10e5e23c4c7bf0b0e4eca";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
-}
-
-function convertUnitToFarenheit(event) {
-  event.preventDefault();
-  let city = document.querySelector("#cityInput").value;
-  let apiKey = "04ceffe59fa10e5e23c4c7bf0b0e4eca";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showConvert);
-}
-
-function showConvert(response) {
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(response.data.main.temp * 1.8 + 32);
-  celsius.classList.remove("active");
-  farenHeit.classList.add("active");
-}
-
-let farenHeit = document.querySelector("#farenheit");
-farenHeit.addEventListener("click", convertUnitToFarenheit);
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", convertBackToCelsius);
 
 search("London");
 
